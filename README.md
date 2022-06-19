@@ -15,3 +15,24 @@
 
 TO-DO: Добавить возможность выбора SQL баз данных.
 
+#### Папка libraries должна лежать в корне вашего проекта (рядом с запускаемым скриптом)
+
+```bash
+mkdir new-project
+cd new-project
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd libraries
+mv example.env .env
+nano .env
+```
+В .env заполните требуемые данные
+```env
+shatoken= - ключ шифрования пароля (можно сделать через uuid.uuid4().hex)
+user= - пользователь базы данных
+db= - название базы данных
+password= - пароль базы данных
+host= - хост базы данных (айпи\ссылка куда обращаться за данными)
+```
+Попробуйте запустить тестовый скрипт 
