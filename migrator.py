@@ -129,7 +129,7 @@ def refresh(args: list) -> None:
     migrate(args)
 
 
-def createmigration(_, args: list) -> None:
+def createmigration(args: list) -> None:
     """
     :param _: Not used in this function
     :param args: Allows you to take the necessary arguments
