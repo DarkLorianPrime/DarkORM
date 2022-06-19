@@ -6,6 +6,7 @@ import dotenv
 from databases import Database
 
 from libraries.utils.extra_features import Singleton
+from colorama import Fore
 
 dotenv.load_dotenv("libraries/.env")
 
@@ -16,6 +17,9 @@ class DatabaseORM(Singleton):
     __user = os.getenv("user")
     __password = os.getenv("password")
     db = Database(f'postgres://{__host}/{__database}', user=__user, password=__password)
+
+    def is_connected(self) -> bool:
+        return self.db.is_connected
 
     async def connect(self) -> None:
         await self.db.connect()
