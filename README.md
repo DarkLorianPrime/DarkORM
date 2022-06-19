@@ -23,6 +23,7 @@ TO-DO: Добавить возможность выбора SQL баз данн�
 ```bash
 mkdir new-project
 cd new-project
+git clone https://github.com/DarkLorianPrime/DarkORM .
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
