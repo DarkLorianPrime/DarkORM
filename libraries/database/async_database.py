@@ -54,8 +54,9 @@ class DatabaseORM(Singleton):
         :param table_name: имя таблицы взаимодействия
         :param values: значения объекта взаимодействия (название столбца: значение)
         """
-        values_str = ", ".join(k for k in values.keys()) + ", :".join(k for k in values.keys()) + ")"
-        query = "INSERT INTO %s(%s) VALUES (:" % (table_name, values_str)
+        values_str = ":" + ", :".join(k for k in values.keys())
+        values_name = ", ".join(k for k in values.keys())
+        query = "INSERT INTO %s(%s) VALUES (%s" % (table_name, values_name, values_str) + ")"
         await self.db.execute(query, values)
 
     async def table_exists(self, table_name: str) -> bool:
